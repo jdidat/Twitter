@@ -15,6 +15,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
     
+    @IBAction func composeTweet(_ sender: Any) {
+        self.performSegue(withIdentifier: "composeTweetSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +82,22 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+            if (segue.identifier == "detailSegue") {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let tweet = tweets[indexPath.row]
+                let tweetDetailViewController = segue.destination as! TweetDetailViewController
+                tweetDetailViewController.tweet = tweet
+            }
+        }
+            else if (segue.identifier == "composeTweetSegue") {
+                return;
+        }
     }
     
     
