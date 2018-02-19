@@ -95,9 +95,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 tweetDetailViewController.tweet = tweet
             }
         }
-            else if (segue.identifier == "composeTweetSegue") {
-                return;
-        }
     }
     
     

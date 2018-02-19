@@ -23,11 +23,11 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     
     var delegate: ComposeTweetViewControllerDelegate?
     
-    var user: User?
+    var user = User._current
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let user = user {
+        if let user = User._current {
             username.text = user.name
             handle.text = "@\(String(describing: user.handle))"
             userImage.af_setImage(withURL: URL(string: user.profileImageURL)!)

@@ -15,7 +15,6 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var handle: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var time: UILabel!
     @IBOutlet weak var numberOfRetweets: UILabel!
     @IBOutlet weak var numberOfFavorites: UILabel!
     @IBOutlet weak var replyLabel: UIImageView!
@@ -101,6 +100,7 @@ class TweetDetailViewController: UIViewController {
                         self.favoriteLabel.isUserInteractionEnabled = true
                         DispatchQueue.main.async {
                             self.tweet = tweet
+                            self.favoriteLabel.image = #imageLiteral(resourceName: "favor-icon")
                         }
                     }
                 })
@@ -113,6 +113,7 @@ class TweetDetailViewController: UIViewController {
                         self.favoriteLabel.isUserInteractionEnabled = true
                         DispatchQueue.main.async {
                             self.tweet = tweet
+                            self.favoriteLabel.image = #imageLiteral(resourceName: "favor-icon-red")
                         }
                     }
                 })
@@ -126,6 +127,7 @@ class TweetDetailViewController: UIViewController {
                     self.favoriteLabel.isUserInteractionEnabled = true
                     DispatchQueue.main.async {
                         self.tweet = tweet
+                        self.favoriteLabel.image = #imageLiteral(resourceName: "favor-icon-red")
                     }
                 }
             })
